@@ -92,5 +92,7 @@ class Fluent::GraphiteOutput < Fluent::Output
     log.warn "out_graphite: connection refused by #{@host}:#{@port}"
   rescue SocketError => se
     log.warn "out_graphite: socket error by #{@host}:#{@port} :#{se}"
+  rescue => e
+    log.warn "out_graphite: unexpected error by #{@host}:#{@port} :#{e}"
   end
 end
